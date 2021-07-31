@@ -1,0 +1,514 @@
+
+<title>ROY Parkour | Admin</title>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png">
+<header>
+<div style="position:absolute; top:2px; left:1px">
+<a href="https://twitter.com/ROOYROOY10"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png" width="55.3" height="56" onmouseover="this.src='https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROYParkour/20210711/20210711131924.png'" onmouseout="this.src='https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png'"></a></div>
+<div class="cp_navi">
+<ul>
+  &emsp;&emsp;&ensp;&ensp;&ensp;<li><b>ROY Parkour</b></li>
+  <li><a class="active" href="https://rooyrooy123.github.io/ROYParkour/home/index.html">Home</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/news/index.html">News</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/about/index.html">About</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/event/index.html">Event</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/rule/index.html">Rule</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/join/index.html">Join</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/Admin/index.html">Admin</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/report/index.html">Report</a></li>
+  <li><a href="https://rooyrooy123.github.io/ROYParkour/download/index.html">Download</a></li>
+  <li>
+    <a>Other<span class="caret"></span></a>
+    <div>
+      <ul>
+        <li><a href="https://royparkour-admin-blog.theblog.me/"><font color="#000000">運営のゆったりブログ</font></a></li>
+        <li><a href="https://photos.app.goo.gl/8okUsfmRQNPRiWev9"><font color="#000000">ROY Parkourアルバム</font></a></li>
+        <li><a href="https://rooyrooy123.github.io/ROYParkour/Admin/rule/index.html"><font color="#000000">運営規約</font></a></li>
+      </ul>
+    </div>
+  <li>
+</ul>
+</div>
+<div style="position:absolute; top:60px; right:10px">
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</header>
+<style>
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10000;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+  }
+  li b {
+    display: block;
+    color: lightblue;
+    text-align: end;
+    padding: 16px 18px;
+    text-decoration: none;
+  }
+
+
+.cp_navi {
+	background-color:  #1b2538;
+	border:1px solid #dedede;
+        border-top: 2px solid #4f87ff;
+        border-bottom: 3.5px solid #4f87ff;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	color: #888888;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+}
+.cp_navi ul {
+	margin: 0;
+	padding: 0;
+}
+.cp_navi ul li {
+	display: inline-block;
+	list-style-type: none;
+	-webkit-transition: all 0.2s;
+	        transition: all 0.2s;
+}
+.cp_navi > ul > li > a > .caret {
+	border-top: 4px solid #aaaaaa;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+	vertical-align: middle;
+	-webkit-transition: color 0.1s linear;
+	        transition: color 0.1s linear;
+}
+.cp_navi > ul > li > a {
+	color: #fff;
+	display: block;
+	line-height: 56px;
+	padding: 0 13px;
+	text-decoration: none;
+}
+.cp_navi > ul > li:hover {
+	background-color: #a9bce2;
+}
+.cp_navi > ul > li:hover > a {
+	color: #fff;
+}
+.cp_navi > ul > li:hover > a > .caret {
+	border-top-color: #888;
+}
+
+.cp_navi > ul > li > div {
+	background-color: #f7fff9;
+        border: 1.5px solid ;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: 250px;
+	visibility: hidden;
+	-webkit-transiton: opacity 0.2s;
+	       transition: opacity 0.2s;
+}
+.cp_navi > ul > li:hover > div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+.cp_navi > ul > li > div ul > li {
+	display: block;
+}
+.cp_navi > ul > li > div ul > li > a {
+	color: #ffffff;
+	display: block;
+	padding: 12px 24px;
+	text-decoration: none;
+}
+.cp_navi > ul > li > div ul > li:hover > a {
+	background-color: #a9bce2;
+}
+
+  body {
+    background-image: url("");
+    background-size: cover;
+    padding-top: 80px;
+  }
+</style>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+h1 {
+  color: #36a5e0;
+  border: solid 3px #36a5e0;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  width:400px;
+  background:#c4f5ff
+}
+</style>
+<h1>運営申請方法とAdmin一覧</h1>
+<style>
+.box28 {
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 2px #6bfaa9;
+    background:#e6ffff
+}
+.box28 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #6bfaa9;
+    color: #ffffff;
+    font-weight: bold;
+}
+.box28 p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.wrap {
+  margin: 2em 0;
+  padding: 0;
+}
+
+.wrap label {
+  display: block;
+  padding : 8px;
+  color: #fff;
+  font-weight: bold;
+  background: #4865f7;
+  cursor: pointer;
+}
+
+.wrap input[type="checkbox"] {
+  display: none;
+}
+
+.wrap .content {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.switch:checked + .content {
+  height: auto;
+  padding: 8px;
+  background: #f7f7f7;
+}
+</style>
+<div class="box28">
+   <span class="box-title"><b>運営申請方法</b></span>
+   <p><b>ROY Parkourでは、発展のため、Checker,Staff,Adminという3つの役職の運営を募集しています。[審査あり]</b>
+<h3>(※ただし、時期によっては募集していないことがあるので注意してください。)</h3></p>
+   <p><b><font color="#808080">役職内容↓</p>
+   <p>Checkerはアスレなどの難易度調整の確認が主な仕事</p>
+   <p>Staffはアスレ、建築物の製作がメインの仕事</p>
+   <p>AdminはChecker,Staffの作業内容に加えて、プレイヤーの監視、ROYPKの方針決めなど、ROY PK全体の仕事を主に行う役職です。</p>
+   <p>下記に運営申請方法がございますので希望の方はご確認ください。</p></b></font>
+   <p><h3>※運営希望者は申請前提条件として、ROY Parkourの参加できる状態である必要があります。(<a href="https://rooyrooy123.github.io/ROYParkour/join/index.html">ROYParkour参加方法)</a></p>
+   <p>※Checker,Staffを希望する場合は<a href="https://twitter.com/ROOYROOY10">Twitter:@ROOYROOY10</a>、或いはDiscordユーザー「るーい#5435」にDMで申請してください。</p>
+   <p>※事前に運営規約もあらかじめご確認ください。</p></h3>
+   <div class="wrap">
+    <label for="label10">運営規約を表示/非表示にする</label>
+    <input type="checkbox" id="label10" class="switch" />
+    <div class="content">
+      <iframe src="https://rooyrooy123.github.io/ROYParkour/Admin/rule/index.html" width="1300" height="700"></iframe></div>
+   <div class="wrap">
+    <label for="label1">Discordで「Admin」役職を希望する場合</label>
+    <input type="checkbox" id="label1" class="switch" />
+    <div class="content">
+      <p><h4>まずは、<a href="https://discord.com/" target="_blank" rel="noopener noreferrer">https://discord.com/</a> からDiscord アカウントを作ってください。</p>
+        <p>作成したら、<a href="https://discord.gg/Hh3F8c9" target="_blank" rel="noopener noreferrer">招待用Discordサーバー</a>に参加してください。すると、参加・運営申請用discordサーバーに入れるはずです。</p>
+        <p>鯖に入れたら画面左側にある 申請方法チェンネルをクリックしてください。そうすると申請方法チェンネルが開けます。(下の画像の赤い部分)</p>
+        <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210617/20210617093621.png" width="160px" height="186px" border="2px" alt="左側の申請方法チェンネルをクリック！">
+        <p>そこのページの上部に運営申請方法が記載されているのでその指示に従って申請をしてください。</p>
+    </div>
+   <div class="wrap">
+    <label for="label2">Twitterで運営を希望する場合</label>
+    <input type="checkbox" id="label2" class="switch" />
+    <div class="content">
+      <p><h4>まずは、<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">https://twitter.com/</a>より、Twitterアカウントを作ってください。</p>
+          <p>そしたら、このMessageボタンを押して<a href="https://twitter.com/messages/compose?recipient_id=1157412517104066560" target="_blank" rel="noopener noreferrer">@ROOYROOY10のDM</a>に行きましょう。<a
+              href="https://twitter.com/messages/compose?recipient_id=1157412517104066560&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-screen-name="@ROOYROOY10" data-show-count="false">Message @@ROOYROOY10</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </p>
+          <p>DMで運営になりたい意思を伝え、希望する役職と運営にさせたいMinecraftIDを教えてください。(@ROOYROOY10からのDMを受け取れるようにしといてください。)</p>
+          <p>過去作品などの写真を載せたりというアピールがあると、審査を通過できやすくなるかも？！　また、審査の関係でいくつか質問する可能性があります。</p>
+          <p>審査完了次第結果をお伝えします。</p>
+          <p>(例↓)</p>
+          <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210625/20210625215049.png" width="320px" height="212px" border="2px" alt="左側の申請方法チェンネルをクリック！">
+
+    </div>
+</div></div></div>
+
+<style>
+  .box29 {
+      position: relative;
+      margin: 2em 0;
+      padding: 25px 10px 7px;
+      border: solid 2px #0af5ee;
+      background:#e6ffff
+  }
+  .box29 .box-title {
+      position: absolute;
+      display: inline-block;
+      top: -2px;
+      left: -2px;
+      padding: 0 9px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 17px;
+      background:#0af5ee;
+      color: #ffffff;
+      font-weight: bold;
+  }
+  .box29 p {
+      margin: 0;
+      padding: 0;
+  }
+
+
+  .wrap2 {
+    margin: 2em 0;
+    padding: 0;
+  }
+
+  .wrap2 label {
+    display: block;
+    padding : 8px;
+    color: #fff;
+    font-weight: bold;
+    background: #7efca6;
+    cursor: pointer;
+  }
+
+  .wrap2 input[type="checkbox"] {
+    display: none;
+  }
+
+  .wrap2 .content {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .switch:checked + .content {
+    height: auto;
+    padding: 8px;
+    background: #f7f7f7;
+  }
+
+
+  .wrap3 {
+    margin: 2em 0;
+    padding: 0;
+  }
+
+  .wrap3 label {
+    display: block;
+    padding : 8px;
+    color: #fff;
+    font-weight: bold;
+    background: #fa9198;
+    cursor: pointer;
+  }
+
+  .wrap3 input[type="checkbox"] {
+    display: none;
+  }
+
+  .wrap3 .content {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+
+
+
+
+  .wrap4 {
+    margin: 2em 0;
+    padding: 0;
+  }
+
+  .wrap4 label {
+    display: block;
+    padding : 8px;
+    color: #fff;
+    font-weight: bold;
+    background: #dfbfff;
+    cursor: pointer;
+  }
+
+  .wrap4 input[type="checkbox"] {
+    display: none;
+  }
+
+  .wrap4 .content {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .wrap5 {
+    margin: 2em 0;
+    padding: 0;
+  }
+
+  .wrap5 label {
+    display: block;
+    padding : 8px;
+    color: #fff;
+    font-weight: bold;
+    background: #c9b38b;
+    cursor: pointer;
+  }
+
+  .wrap5 input[type="checkbox"] {
+    display: none;
+  }
+
+  .wrap5 .content {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+
+
+
+  </style>
+
+<div class="box29">
+  <span class="box-title"><b>運営一覧 Management Structure</b></span>
+  <div class="wrap2">
+   <label for="label3">Owner</label>
+   <input type="checkbox" id="label3" class="switch" />
+   <div class="content">
+     <p><img src="https://cravatar.eu/head/8cebeb059e5242758208f9c6bb77545e/64.png" align="left">
+     <br><b>ROOYROOY</b></br>
+     <br clear="left">
+  </div>
+  <div class="wrap3">
+   <label for="label4">Admin</label>
+   <input type="checkbox" id="label4" class="switch" />
+   <div class="content">
+     <p><img src="https://cravatar.eu/head/552b93c9-e83e-4d46-a1cf-d9352cb556ea/48.png" align="left">
+     <br><b>k8w</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/4ee6d68dae3946cfb883db0745ba5bea/48.png" align="left">
+     <br><b>CosmicGigalith</b></br> <!-- こまどん -->
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/2fb828b77c364857b32c0ebe6c8a49e4/48.png" align="left">
+     <br><b>XurekTucq</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/a61f7017f7804a6c8b0c461bd12602fc/48.png" align="left">
+     <br><b>Sasterisk24</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/cb215f3fbe674582a823f3f3055d6a61/48.png" align="left">
+     <br><b>rei_036</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/14065a1e1f1e41c5a95594c4d22249f9/48.png" align="left">
+     <br><b>Awa9999</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/edc5fd127ed64a0fb281b52500baa4b6/48.png" align="left">
+     <br><b>4zusa</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/cf564473ed25481aadd09152a668e325/48.png" align="left">
+     <br><b>__Mercy_(めるしー)
+</b></br>
+     <br clear="left"></p>
+
+         </div>
+  <div class="wrap4">
+  <label for="label5">Staff</label>
+  <input type="checkbox" id="label5" class="switch" />
+  <div class="content">
+     <p><img src="https://cravatar.eu/head/831406ca-0a19-43d0-b9aa-82c44e44366b/48.png" align="left">
+     <br><b>FlashNainn_29349
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/be50ecdb-d17f-4186-b1f1-45745c5d791c/48.png" align="left">
+     <br><b>L4stB1ue
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/f236cdd15dae4e598c2c4c20a72d75ce/48.png" align="left">
+     <br><b>cornsoup_1104
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/1a9c293cbb8c497db7b00894f9f3bc45/48.png" align="left">
+     <br><b>nonsensePalda
+</b></br><!-- NYukiさん -->
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/68fb6d2bc01146f78bb1c064138fac01/48.png" align="left">
+     <br><b>_Rucia
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/cb5e21848414422588e7b97cf123912c/48.png" align="left">
+     <br><b>Suzu_R4n
+</b></br> <!-- FAMITANさん -->
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/c807a6239bfc412fbea0fe73bf28f369/48.png" align="left">
+     <br><b>Chiru037
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/b35421e519ba419ea1b4da38de03c40e/48.png" align="left">
+     <br><b>shark_kigu
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/7f913d518e774c928a3e6f0592b71adc/48.png" align="left">
+     <br><b>_Muse <!-- Neiroさん -->
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/e7767d1bba494d7c808c2d8ee1bb6de9/48.png" align="left">
+     <br><b>Nao_Nao7070
+</b></br>
+     <br clear="left"></p>
+   </div>
+  <div class="wrap5">
+   <label for="label6">Checker(Tester)</label>
+   <input type="checkbox" id="label6" class="switch" />
+   <div class="content">
+     <p><img src="https://cravatar.eu/head/1e1beae25cd14447b6f4951ff066de30/48.png" align="left">
+     <br><b>keisukeKH
+</b></br>
+     <br clear="left"></p>
+     <p><img src="https://cravatar.eu/head/885187c62db14d4d97e3aecc5d741263/48.png" align="left">
+     <br><b>taichies
+</b></br>
+     <br clear="left"></p>
+</div>
+
+</div></div></div>

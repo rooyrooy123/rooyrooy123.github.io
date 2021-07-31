@@ -1,0 +1,62 @@
+
+#必須なもの jsonsk(https://www.spigotmc.org/resources/json-sk.8851/) Skript skqueryあとわからんwww
+#/opを実行するとGUIが開かれるので5秒以内に黄緑の羊毛をクリック。そしたらチャットにクリックしてくださいとでるので5秒以内にそれをクリックすることでOPを渡せます。
+#create own your menuなどによるOP不正取得防止のためのSkriptです。
+#改変は自由ですが2次配布は禁止
+#このskriptによる損害につきましては一切の責任を負いかねます
+#SKめちゃ雑だけど許してw
+#製作者：るーいROOYROOY (ROYPARKOUR OWNER
+
+
+command /op <offline player>:
+    permission: sk.admin
+    trigger:
+        if player is op:
+            message "&4&l今から5秒以内に緑のガラスをクリックすることで/op %arg-1%の実行作業1を行います。"
+            open chest with 6 row named "5秒以内に緑色のガラスをClick!" to player
+            wait 1 tick
+            set {sarg.%player%} to "%arg-1%"
+            set {_s} to 0
+            set {_sudooprandom} to a random integer between 0 and 54
+            loop 54 times:
+                set slot {_s} of player's current inventory to red wool named "" with lore ""
+                add 1 to {_s}
+            set slot {_sudooprandom} of player's current inventory to light green wool named "&aClick to≫/op %arg-1%"
+            wait 5 seconds
+            close player's inventory
+            
+
+
+
+on inventory click:
+    if name of player's current inventory is "5秒以内に緑色のガラスをClick!":
+        cancel event
+        clicked inventory isn't player's inventory
+        if clicked item is light green wool:
+            close player's inventory
+            set {sudooprandomtext3%player%} to random 8 char string from charset `a-zA-Z0-9`
+            json("%player%", "&e&l&nここを5秒以内にクリックすることで%{sarg.%player%}%&e&l&nにOPを与えます。 ||cmd:/giveop2 %{sarg.%player%}% %{sudooprandomtext3%player%}% ||ttp:")
+            wait 5 seconds
+            delete {sudooprandomtext3%player%}
+        if clicked item is red wool:
+            close player's inventory
+            send "Click miss"
+            
+
+command /giveop2 <offline player> <text>:
+    permission:sk.admin
+    trigger:
+        if arg-2 is "%{sudooprandomtext3%player%}%":
+            if {sudooprandomtext3%player%} is set:
+                send "%arg-1%にOP権限を渡しました。"
+                op arg-1
+                send "&e%player%からOP権限が渡されました。" to arg-1
+        if {sudooprandomtext3%player%} is not set:
+            send "Error:不明なCODEです。"
+        if arg-2 is not "%{sudooprandomtext3%player%}%":
+            send "5秒以内に実行できなかったのでもう一度/opを実行してください。"
+
+
+
+
+

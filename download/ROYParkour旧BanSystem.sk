@@ -1,0 +1,225 @@
+
+#
+#Create by ROOYROOY (Twitter:@ROOYROOY10)
+#ROY Parkourオーナー
+#
+#完成日時:2020/6/10(skript始めたころに書いたやつ。適当だったので部分的に修正しました)
+#
+#このシステムは製作者が運営している限定公開鯖「ROY parkour」で使用していたSkriptです。（ただし、所々セキュリティーの関係で改変しております。)
+#
+#ちょっとskript適当なところあるけどゆるぴて^^
+#
+#では早速Skriptの説明をしたいと思います。
+#
+#
+#このシステムは違反者にポイントをつけて特定のポイントに到達したらサーバーから追放されるシステムとなっております。
+#システムコマンドは/ban-helpで確認できます。
+#
+#
+#一応すべて動作チェックはしておりますが万が一不具合などがございましたらtwitter:@ROOYROOY10までご報告ください。
+#
+#大半はUUIDに対応してるので名前変更しても大丈夫です。
+#あとオフライン時にBANPOINTが加算されたら次参加した時にその情報が通知されるシステムとなっています。
+#
+#注意事項
+#二次配布は絶対禁止です。
+#改造は一部OKです。改造禁止の部分はしっかり示してあるので確認を
+#作者を装う行為は行わないでください。極めて悪質です。
+#
+#動作チェック時のサーバー環境
+#plugin。あまりSkriptaddonには詳しくないのでテスト時に私が導入していたプラグインを載せますね。
+#Skript ver2.4.1,Skquery,Skrayfall,Skellett,TuSKe,SkStaff 最後の2つはきっといらないと思います。(わからんけどw)
+#
+#動作チェック時のサーバーバージョン
+#1.12.2 paperspigot
+#
+#このSKは自己責任で導入してください。
+
+#オプション↓↓
+
+options:
+    br: 30  #何時間ごとにBanポイントを１つ減らすかの数字を入れてください。例：30といれたらサーバープレイ時間が30時間になったときに1Banpointを減らすことができます。この機能をオフにしたいときは/ban-removepoint offを実行してください。逆にONにしたい場合は/ban-removepoint onを実行して下さしい。デフォルトはOFFに設定されてます。(Banpointが1以上の人のみ有効)
+    banpt: 10 #何PTでBANされるようになるか
+    
+    
+on join:
+    if {banpoint.%uuid of player%} is not set:
+        set {banpoint.%uuid of player%} to 0
+on connect:
+    if {banpoint.%uuid of player%} is greater than or equal to {@banpt}:
+        kick the player due to "&4BANポイントが{@banpt}になったのでBAN対象となりました。"
+
+command /ban-add <Offline player> <number> <text>:
+    usage:/ban-add 対象者 加算するBANポイント <reason>
+    permission:sk.admin
+    trigger:
+        add arg-2 to {banpoint.%uuid of arg-1%}
+        if arg-1 is offline:
+            set {banmail.%arg-1%} to "&aBANPoint≫&c%arg-1% さんが&e%player% により&c%arg-3%という理由でBANポイントが追加されました。&e+%arg-2% &7(%{banpoint.%uuid of arg-1%}%/{@banpt}) &a実行日時:%now%"
+        wait 4 ticks
+        broadcast "&aBANPoint≫&c%arg-1% さんが&e%player% により&c%arg-3%という理由でBANポイントが追加されました。&e+%arg-2% &7(%{banpoint.%uuid of arg-1%}%/{@banpt})"
+        add "%now%:%arg-1%が%{banpoint.%uuid of arg-1%}% pt になった理由 %arg-3% 実行者:%player%" to {banreason.%uuid of arg-1%}
+        if {br} is set:
+            send "&aBANPoint≫&eプレイ時間が{@br}時間たつごとにBanポイントが1つ減ります。" to arg-1
+        wait 15 ticks
+        loop 25 times:
+            create lightning effect at arg-1
+        wait 3 seconds
+        if {banpoint.%uuid of player%} is greater than or equal to {@banpt}:
+            kick the player due to "&4BANポイントが{@banpt}&4になったのでBAN対象となりました。"
+            add "%player%" to {banlist::*}
+        
+
+command /ban-pardon <offline player>:
+    permission:sk.admin
+    trigger:
+        remove "%arg-1%" from {banlist::*}
+        execute console command "/ban-set %arg-1% 0"
+        delete {banmail.%arg-1%}
+        execute console command "/pardon %arg-1%"
+        execute console command "/pardon-ip %arg-1%"
+        send "&aBanpoint≫%arg-1%のBANを解除しました。"
+        
+        
+on join:
+    wait 1 seconds
+    if {banmail.%player%} is set:
+        wait 2 seconds
+        send "&aBANPoint≫&4&lあなたがオフラインの時にBanpointが加算されていました。詳細は下記に表示しています。"
+        send "&7"
+        send "%{banmail.%player%}%"
+        wait 4 ticks
+        delete {banmail.%player%}
+
+command /ban-set <Offline player> <number>:
+    permission:sk.admin
+    trigger:
+        set {banpoint.%uuid of arg-1%} to arg-2
+        wait 4 ticks
+        send "&aBANPoint≫&b%arg-1% is %{banpoint.%uuid of arg-1%}% pt now."
+
+command /ban-ban <offline player> <text>:
+    usage: /ban-ban <player> <reason>
+    permission:sk.admin
+    trigger:
+        set {banpoint.%uuid of arg-1%} to {@banpt}
+        if arg-1 is offline:
+            set {banmail.%arg-1%} to "&aBANPoint≫&c%arg-1% さんが&e%player% により&c%arg-2%という理由でBANポイントが追加されました。&7(%{banpoint.%uuid of arg-1%}%/{@banpt}) &a実行日時:%now%"
+        wait 4 ticks
+        broadcast "&aBANPoint≫&c%arg-1% さんが&e%player% により&c%arg-2%という理由でBANになりました。&7(%{banpoint.%uuid of arg-1%}%/{@banpt})"
+        add "%now%:%arg-1%が%{banpoint.%uuid of arg-1%}% pt になった理由 %arg-2% 実行者:%player%" to {banreason.%uuid of arg-1%}
+        if {br} is set:
+            send "&aBANPoint≫&eプレイ時間が{@br}時間たつごとにBanポイントが1つ減ります。" to arg-1
+        wait 15 ticks
+        loop 5 times:
+            create lightning effect at arg-1
+        wait 1 seconds
+        if {banpoint.%uuid of player%} is greater than or equal to {@banpt}:
+            kick the player due to "&4あなたはBANされました。Reason:%arg-2%"
+            add "%player%" to {banlist::*}
+        
+
+
+
+command /ban-remove <Offline player> <number>:
+    permission:sk.admin
+    trigger:
+        remove arg-2 from {banpoint.%uuid of arg-1%}
+        wait 4 ticks
+        send "%arg-1% is %{banpoint.%uuid of arg-1%}% pt NOW"
+
+#BANポイントが定期的に減る機能は動作チェックしてないけど多分だいじょうぶでしょう^^
+    
+command /ban-removepoint <boolean>:
+    permission:sk.admin
+    trigger:
+        if arg-1 is true:
+            set {br} to true
+            send "BANポイントが定期的に減るようになりました。&7({@br}時間ごと)⇦はSkriptファイル「%script%&7」のoptionで設定できます。"
+        if arg-1 is false:
+            delete {br}
+            send "BANポイントが定期的に減らなくなりました。"
+            
+#プレイヤーのBANポイントとBANリストを確認
+command /ban-check <Offline player>:
+    permission:sk.admin
+    trigger:
+        send "%{banpoint.%uuid of arg-1%}% pt" to player
+        send "-=Banlist=-"
+        send "%{banlist::*}%"
+
+
+every 1 second:
+    if {br} is set:
+        loop all players:
+            if {banpoint.%loop-player's uuid%} is greater than 0:
+                add 1 to {bsecond.%loop-player's uuid%}
+                if {bsecond.%loop-player's uuid%} is greater than 59:
+                    set {bsecond.%loop-player's uuid%} to 0
+                    add 1 to {bminute.%loop-player's uuid%}
+                    if {bminute.%loop-player's uuid%} is greater than 59:
+                        add 1 to {bplaytimehour.%loop-player's uuid%}
+                        set {bminute.%loop-player's uuid%} to 0
+
+ 
+every 5 seconds:
+    loop all players:
+        if {banpoint.%loop-player's uuid%} is greater than 0:
+            if {bplaytimehour.%loop-player's uuid%} is greater than or equal to {@br}:
+                set {bplaytimehour.%loop-player's uuid%} to 0
+                remove 1 from {banpoint.%loop-player's uuid%}
+                wait 2 ticks
+                send "{@br}時間経過したのでBANポイントが1減りました。あなたの現在のBANPOINT:%{banpoint.%loop-player's uuid%}%" to loop-player
+                
+on join:
+    wait 3 seconds
+    if {banpoint.%uuid of player%} is greater than 0:
+        send "&cあなたはBanPointを持っています。これが{@banpt}以上になるとBAN対象になります。あなたの現在のBANPOINT:%{banpoint.%player's uuid%}%"
+
+
+
+
+#--------------------------------------------------------------------------
+#
+#
+#ここから下は改造禁止!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+#
+#--------------------------------------------------------------------------
+
+
+
+command /ban-help:
+    trigger:
+        send "&e------------------------------&b[&aPointBan help&b]&e------------------------------"
+        send ""
+        send "Banptを増やす.../ban-add <player> <加算するポイント> <理由>"
+        send "Banptを減らす.../ban-remove <player> <減らすポイント>"
+        send "Banptを設定する.../ban-set <player> <設定するポイント>"
+        send "BanptとBANlist(Banptが{@banpt}以上の人)をチェックする.../ban-check <player>"
+        send "プレイヤーをBANする(プレイヤーのBANPTを{@banpt}にする).../ban-ban <player> <reason>"
+        send "Banptが{@banpt}以上になり、追放されてしまった人のBan解除.../ban-pardon <player>"
+        send "このシステムの情報を確認する.../ban-info"
+        send "数時間プレイしたらBanptが１つ減るのをONにするか.../ban-removepoint <on/off>"
+        send "↑の時間を一番上のoptionの欄で設定できます。"
+        if player is op:
+            send "Ban基準ptはSkriptファイル「%script%&7」のoption欄で設定できます。&7(デフォルト:10)"
+        send ""
+        send "&aCreate by ROOYROOY...&eROY parkour鯖オーナー &b(Twitter:@ROOYROOY10)"
+  
+
+
+command /ban-info:
+    permission:sk.admin
+    trigger:
+        send "&efilename:%script%"
+        if {br} is set:
+            send "&bRemovepointSystem:&aON"
+        if {br} is not set:
+            send "&bRemovepointSystem:&7OFF"
+        send "&cBan基準Pt:{@banpt}"
+        send "&cremovepoint:{@br}時間おき"
+        send "&bこの二つは Skriptファイル「%script%&b」のoption欄で設定できます。"
+        
+            
+
