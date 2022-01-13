@@ -2,14 +2,14 @@
 <body>
   <form name="form1" action="">
     <input name="asure" type="text" value="" />
-	<input type="button" id="Run in nature" value="Run in nature" onclick="call();" />
+	<input type="button" id="Run in nature" value="Run in nature" onclick="call()">
   </form>
 </body>
 </html>
 
 <script type="text/javascript" language="javascript">
     function call(){
-      window.parent.onButtonClick();
 	  alert("callの関数が実行されました。");
+      window.parent.onButtonClick();
     }
 </script>
