@@ -1,16 +1,66 @@
 
-  <script type="text/javascript" language="javascript">
-        
-        function onButtonClick(){
-		  alert("親ページの関数が実行されました。");
-  /// 要素IDを取得する
-          var e = e || window.event;
-          var elem = e.target || e.srcElement;
-          var elemId = elem.id;
-          document.forms.form1.asure.value = (elemId);
-        }
-	    
+
+ <script type="text/javascript" language="javascript">
+
+
+// ranking読み込み iframeでparkournameこの場合の$(url).htmlを表示する
+function rankingload( strValue ) {
+
+	var base;
+	var obj;
+
+	base = document.getElementById(strValue);
+	base.innerHTML = "";
 		
-  </script>
-  </script>
-<iframe src=list/index.html  width=1000″  height=1000″></iframe>
+	// IFRAME 作成
+	obj = document.createElement("iframe");
+	// IFRAME の見栄え属性をセット
+	obj.setAttribute("frameBorder", "1");
+	obj.setAttribute("scrolling", "no");
+
+	// IFRAME の配置属性をセット
+	obj.style.position = "relative";
+	obj.style.width = "500px";
+	obj.style.height = "500px";
+
+	// IFRAME の内容をセット
+	obj.src = document.getElementById("url").value;
+    obj.src += ".html";
+	
+	// IFRAME を実装
+	base.appendChild(obj);
+
+
+}
+
+
+// select要素が変更されたときにurlidのformにParkour名ぶち込む
+window.addEventListener('DOMContentLoaded', function(e){
+
+  document.querySelector('#parkourlist').addEventListener('change',function(e){
+
+    var t=e.target;
+
+    document.querySelector('#url').value=t.options[t.selectedIndex].textContent;
+	rankingload( "new" );
+
+  });
+
+});
+
+</script>
+<!== ここから>
+<select name="parkourlist" id="parkourlist">
+<option value="Run in nature"">Run in nature</option>
+<option value="Iron factory"">Iron factory</option>
+</select>
+
+<form name="form1" action="">
+<input name="asure" type="text" id="url" value="" /><br>
+</form>
+  
+<input type="button" value="再読み込み" onclick='rankingload( "new" );'>
+
+<div id="new"></div>
+<!== ここまでをskriptを使ってテキストファイルで書く>
+<!==skriptで書くとこ以外は違うファイルのtxtで書いて、自動でそれとskで作ったファイルと同士を結合させる。>
