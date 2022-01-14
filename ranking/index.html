@@ -177,6 +177,7 @@ function rankingload( strValue ) {
 	// スマホの場合の高さ
 	  obj.style.width = "400px";
 	  obj.style.height = "775px";
+	  iframediv.style.zoom = '1.5';
     }else{
 	// PC・タブレットの場合の高さ
 	  obj.style.width = "400px";
@@ -223,7 +224,7 @@ top:60px;
 }
 
 
-#iframezoom{
+#iframe{
 zoom:2.3;
 position: absolute;
 left: 30px;
@@ -304,7 +305,7 @@ top:35px;
 </form>
 <input type="button" value="再読み込み" width="400px" onclick='rankingload( "new" );'>
 </div>  
-<div id ="iframezoom">
+<div id ="iframediv">
 <div id="new"></div>
 </div>
 <!== ここまでをskriptを使ってテキストファイルで書く>
