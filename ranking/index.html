@@ -182,6 +182,8 @@ function rankingload( strValue ) {
 	// PC・タブレットの場合の高さ
 	  obj.style.width = "400px";
 	  obj.style.height = "490px";
+	  select.style.zoom = '1.5';
+	  select.style.animation = 'anim 1s forwards';
     }
 
 
@@ -191,8 +193,7 @@ function rankingload( strValue ) {
 	
 	// IFRAME を実装
 	base.appendChild(obj);
-	select.style.zoom = '1.5';
-	select.style.animation = 'anim 1s forwards';
+	
 
 }
 
