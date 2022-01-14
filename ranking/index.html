@@ -190,7 +190,8 @@ function rankingload( strValue ) {
 	
 	// IFRAME を実装
 	base.appendChild(obj);
-
+	select.style.zoom = '1.5';
+	select.style.animation = 'anim 1s forwards';
 
 }
 
@@ -204,7 +205,7 @@ window.addEventListener('DOMContentLoaded', function(e){
 
     document.querySelector('#url').value=t.options[t.selectedIndex].textContent;
 	rankingload( "new" );
-
+   
   });
 
 });
@@ -214,33 +215,98 @@ window.addEventListener('DOMContentLoaded', function(e){
 input.widebox1{
 width:222px;
 }
-
-
-#page{
-zoom:2.3;
-text-align: center;
+#select{
+zoom:1.55;
+position: absolute;
+left:400px;
+top:60px;
 }
 
 
-</style>
-<div id ="page">
+#iframezoom{
+zoom:2.3;
+position: absolute;
+left: 30px;
+top:35px;
+}
 
+@keyframes anim {
+  0% {
+  transform: translateX(0px);
+  }
+
+  100% {
+  transform: translateX(300px);
+  }
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</script>
+<div id="select">
 
 <!== ここから>
-<select name="parkourlist" id="parkourlist">
+<select name="parkourlist" id="parkourlist" size=15>
+
 <!==Parkour名に空白ある時は、消す>
 <option value="none"">アスレチックを選択してください</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
+<option value="Runinnature"">Runinnature</option>
+<option value="Ironfactory"">Ironfactory</option>
 <option value="Runinnature"">Runinnature</option>
 <option value="Ironfactory"">Ironfactory</option>
 </select>
 
 <form name="form1" action="">
-<input name="asure" type="text" class="widebox1" id="url" value="" /><br>※入力する場合は空白を消してください<br>
+<input name="asure" type="text" class="widebox1" id="url"  placeholder="アスレチック名入力欄" /><br>※入力する場合は空白を消してください<br>
 </form>
-  
 <input type="button" value="再読み込み" width="400px" onclick='rankingload( "new" );'>
-
+</div>  
+<div id ="iframezoom">
 <div id="new"></div>
+</div>
 <!== ここまでをskriptを使ってテキストファイルで書く>
 <!==skriptで書くとこ以外は違うファイルのtxtで書いて、自動でそれとskで作ったファイルと同士を結合させる。>
-</div>
+
