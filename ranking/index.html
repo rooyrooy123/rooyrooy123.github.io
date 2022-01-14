@@ -173,10 +173,11 @@ function rankingload( strValue ) {
 	// IFRAME の配置属性をセット
 	obj.style.position = "relative";
 	if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
+	// スマホの場合の高さ
 	  obj.style.width = "400px";
-	  obj.style.height = "773px";
+	  obj.style.height = "768px";
     }else{
-	// PC・タブレットの場合の処理を記述
+	// PC・タブレットの場合の高さ
 	  obj.style.width = "400px";
 	  obj.style.height = "490px";
     }
