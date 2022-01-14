@@ -169,19 +169,19 @@ function rankingload( strValue ) {
 	obj = document.createElement("iframe");
 	// IFRAME の見栄え属性をセット
 	obj.setAttribute("frameBorder", "1");
-	obj.setAttribute("scrolling", "no");
+	obj.setAttribute("scrolling", "auto");
 
 	// IFRAME の配置属性をセット
 	obj.style.position = "relative";
 	if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
 	// スマホの場合の高さ
 	  obj.style.width = "400px";
-	  obj.style.height = "805px";
+	  obj.style.height = "820px";
 	  iframediv.style.zoom = '1.5';
     }else{
 	// PC・タブレットの場合の高さ
-	  obj.style.width = "400px";
-	  obj.style.height = "490px";
+	  obj.style.width = "1000px";
+	  obj.style.height = "580px";
 	  select.style.zoom = '1.5';
 	  select.style.animation = 'anim 1s forwards';
     }
@@ -241,6 +241,11 @@ top:35px;
   transform: translateX(300px);
   }
 }
+
+input {
+border: 1.5px solid black;
+}
+
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </script>
