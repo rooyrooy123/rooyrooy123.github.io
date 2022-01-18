@@ -1,0 +1,14 @@
+<style>
+.pace-running .loadedpage{
+opacity:0;
+}
+.pace-done .loadedpage{
+opacity:1;
+
+      transition: 1s;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+    -ms-transition: 1s;
+      -o-transition: 1s; 
+}
+</style>
