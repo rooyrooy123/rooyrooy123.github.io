@@ -67,15 +67,40 @@ opacity:1;
     -ms-transition: 1s;
       -o-transition: 1s; 
 }
+
+
+
+
+.glass-container{
+    width: 500px;
+    height: 65px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 57px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0,191,255, 0.363);
+    box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+    border: 2px rgba(255,255,255,0.4) solid;
+    border-bottom: 2px rgba(40,40,40,0.35) solid;
+    border-right: 2px rgba(40,40,40,0.35) solid;
+}
+
 </style>
+
 <head>
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
 	<link rel="stylesheet" href="../loading-bar.css">
 </head>
+
 <div class="loadedpage">
-<h1>ROY Parkour ニュースページ</h1>
+
+<div class="glass-container" id="glass">
+<h1>ROY Parkour ニュースページ</h1></div><br>
 <iframe src="../news/api/index.html" width="1000" height="100"></iframe></div>
-<br><br><br>
+<br><br>
 <a class="twitter-timeline" data-width="900" data-height="400" data-theme="light" href="https://twitter.com/ROYPK_Official?ref_src=twsrc%5Etfw">Tweets by ROYPK_Official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
