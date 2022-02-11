@@ -196,7 +196,8 @@ display: block;	/* またはblockなど */
 
 
 option{
-  transition: 1s;
+  padding-left: 10px;
+  transition: 0.5s;
 }
 
 option:hover{
@@ -212,7 +213,7 @@ option:checked:after{
 option:checked{
   transform: scale(1.1);
   animation-name: center;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -220,7 +221,7 @@ option:checked{
 
 @keyframes center {
   from{
-    padding-left: 0px;
+    padding-left: 10px;
     text-align: left;
     font-weight: 0;
     background-color: #ffffff;
@@ -294,7 +295,7 @@ option:checked{
 
       <option disabled selected value>↓項目を選択してください↓</option>
       <optgroup label="イベント参加方法"></optgroup>
-      <option value="eventjoinevent">イベント鯖に参加する方法</option>
+      <option value="eventjoinevent" selected>イベント鯖に参加する方法</option>
       <option value="eventjoinROYPK">ROYPKでのイベントに参加する方法</option>
       <optgroup label="ROYParkourサーバーのイベント"></optgroup>
       <option value="athleticmarathon">アスレチックマラソン</option>
