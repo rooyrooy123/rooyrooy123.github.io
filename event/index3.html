@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+< lang='en' class=''>
+
+<head>
+
+  <meta charset='UTF-8'>
+  <title>CodePen Demo</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+  <link rel="canonical" href="https://codepen.io/hmg/pen/ZMKLJj">
+
+  
+  
+
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HmaGLPp_2rmH3sZeOnBNS0GSEoMJIXxKGIlukvWBEmgVzMRtsCFRMiiitgPKONtiGwz2PSyLjWSrc4nrQSp7g4hsHIAcWqwrFVdWTmM5sITZp0fXEbkFWaQLfLdEP4h7DLxX4n_pwN_MfEKsHsd36Q" charset="UTF-8"></script><style class="INLINE_PEN_STYLESHEET_ID">
+    section {
+  position: absolute;
+  display: none;
+}
+
+/* 表示スタイル（動作に無関係） */
+section {
+  margin-top: 3rem;
+  border: 1px solid #ccc;
+  padding: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+#a01 {
+  background: #D8DBE2;
+}
+#a02 {
+  background: #A9BCD0;
+}
+#a03 {
+  background: #58A4B0;
+}
+
+  </style>
+
+  
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-d0f3648046d2aaca07bd0037b9e061a26c74a8a999b75672ad6a638cca641472.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+</head>
+
+<body>
+  <select>
+  <option value="select">選択してください</option>
+  <option value="a01">要素1</option>
+  <option value="a02">要素2</option>
+  <option value="a03">要素3</option>
+</select>
+
+<section id="a01">
+要素１
+</section>
+
+<section id="a02">
+要素2
+</section>
+
+<section id="a03">
+要素3
+</section>
+  
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script  src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-4fe2ad67-dcc2-13dd-75e3-43bfa21f7ea5" crossorigin></script>
+</body>
+
+
+
+<select class="select">
+
+    <option disabled selected value>年を選択</option>
+    
+      <option class="yeaaar">2020年</option>
+    
+      <option class="year">2019年</option>
+    
+      <option class="year">2018年</option>
+    
+      <option class="year">2017年</option>
+    
+    </select>
+    
+    
+    
+      <ul>
+    
+      <li class="area">2020年を選択した際と、このページを一番最初に見たときに表示されるエリア</li>
+    
+      <li class="area">2019年を選択した際に表示される箇所 </li>
+    
+      <li class="area">2018年を選択した際に表示される箇所　中身に規則性は無いです</li>
+    
+      <li class="area">2017年を選択した際に表示される箇所</li>
+    
+    </ul>
+
+<style>
+
+
+.area {
+
+display: none;
+
+}
+
+.area.show {
+
+display: list-item;	/* またはblockなど */
+
+}
+
+</style>
+<script>
+
+
+$(function(){
+
+area_control(0);
+
+
+
+$('.select').on('change', function(){
+
+    let op_index = $(this).prop('selectedIndex') - 1;
+
+    area_control(op_index);
+
+});
+
+});
+
+
+
+function area_control(n){
+
+$('.area.show').removeClass('show');
+
+$('.area').eq(n).addClass('show');
+
+}
+
+
+</script>

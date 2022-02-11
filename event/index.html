@@ -1,4 +1,5 @@
 
+
 <title>ROY Parkour | Event</title>
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/png" href="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png">
@@ -62,230 +63,254 @@ opacity:1;
 <head>
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
-	<link rel="stylesheet" href="../loading-bar.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
-<div class="loadedpage">
+<!--デバッグのために消しときます 	  <link rel="stylesheet" href="../loading-bar.css"> -->
+<!--デバッグのために消しときます <div class="loadedpage"> -->
+
+
 <style>
-h1 {
-  position: relative;
-  color: #333;
-  text-shadow: 0 0 2px white;
-  background: #e0f3ff;
-  z-index: -4;
-  border-radius: 0 10px 10px;
+.parent {
+display: grid;
+grid-template-columns: repeat(20, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 30px;
+grid-row-gap: 20px;
 }
 
-h1:before {
-  content: "";
+.div1 { grid-area: 1 / 1 / 7 / 6; }
+.div2 { grid-area: 2 / 6 / 7 / 21; }
+.div3 { grid-area: 1 / 6 / 2 / 21; }
+
+
+    .div1 {  
+    background: ;
+    }
+    .div2 {  
+    background: #ffffff;
+    }
+    .div3 {  
+    background: #888888;
+    }
+
+.glass-container {
+  background: linear-gradient(270deg, #f249f5, #f2cb2f, #11d2db, #19dd16, #4cffe2, #f69215, #ff5050);
+    background-size: 1400% 1400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.select1 select{
+  position: fixed;
+  top: 190px;
+  left: 20px;
+  width: 350px;
+  border :1px solid #eee;
+	font-size :20px;
+  
+}
+
+
+/* This was made with GlassGenerator.netlify.app */ 
+
+.glass-container{
+    position: fixed;
+    top: 80px;
+    left: 45px;
+    width: 270px;
+    height: 80px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    background-color:;
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    border: 2px rgba(255,255,255,0.4) solid;
+    border-bottom: 2px rgba(40,40,40,0.35) solid;
+    border-right: 2px rgba(40,40,40,0.35) solid;
+}
+
+
+
+
+section {
   position: absolute;
-  background: #9de5ff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  top: 50%;
-  left: -10px;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  z-index: -1;
-}
-
-.box1 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #232323;
-    background: #fff8e8;
-    border-left: solid 10px #ffc06e;
-}
-.box1 p {
-    margin: 0;
-    padding: 0;
-}
-
-.box2{
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #474747;
-    background: whitesmoke;/*背景色*/
-    border-left: double 3px #4ec4d2;/*左線*/
-    border-right: double 3px #4ec4d2;/*右線*/
-}
-.box2 p {
-    margin: 0;
-    padding: 0;
-}
-
-.wrap {
-  margin: 2em 0;
-  padding: 0;
-}
-
-.wrap label {
-  display: block;
-  padding : 8px;
-  color: #25b42f;
-  font-weight: bold;
-  background: #994949;
-  cursor: pointer;
-}
-
-.wrap input[type="checkbox"] {
   display: none;
 }
 
-.wrap .content {
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  margin-bottom: 10px;
-  border: 1px solid #a3a3a3;
+/* 表示スタイル（動作に無関係） */
+section {
+  margin-top: 3rem;
+  border: 1px solid #ccc;
+  padding: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+#a01 {
+  background: #D8DBE2;
+}
+#a02 {
+  background: #A9BCD0;
+}
+#a03 {
+  background: #58A4B0;
 }
 
-.switch:checked + .content {
-  height: auto;
-  padding: 8px;
-  background: #F7F7F7;
+
+
+
+.area {
+
+display: none;
+
 }
-</style>
-<h1>  ROY Parkourのイベント企画 </h1>
-<div class="box1">ROY Parkourの鯖主は不定期で人狼RPGやアスレチックレースなどのイベント企画を行っています。<br>予告は<a href="https://twitter.com/ROOYROOY10">@ROOYROOY10</a>のツイート、または、イベントサーバーのDiscord、(場合によってはROYPK参加者専用discord)に送信します。
-<div class="box2"><b><font color="green">イベントDiscord鯖に参加する方法↓↓↓</font></b><br>
-<a href="https://twitter.com/ROOYROOY10">@ROOYROOY10</a>のDMでイベント鯖に参加したい意思を伝えます。<br>
-審査を通過できた場合、イベント鯖のdiscordURLを送ります。<br>
-<font color="green"><b>【ROY Parkourの参加者専用Discordに参加している場合】</font></b><br>
-ROY Parkour参加者専用Discord鯖内の「roy-parkour」というチャンネルに移動すると、イベント鯖のURLを確認できます。</div>
+
+.area.show {
+
+display: block;	/* またはblockなど */
+
+}
+
+
+option{
+  transition: 1s;
+}
+
+option:hover{
+  background-color: #4cffe2;
+  transform: scale(1.05);
+  font-weight: 500;
+}
+
+option:checked:after{
+  content:"◁◁◁";
+}
+
+option:checked{
+  transform: scale(1.1);
+  animation-name: center;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes center {
+  from{
+    padding-left: 0px;
+    text-align: left;
+    font-weight: 0;
+    background-color: #ffffff;
+  }
+  to{
+    padding-left: 10%;
+    text-align: left;
+    font-weight: 800;
+  }
+
+}
+
+
+
+</style>    
+
+
+<script>
+
+
+  $(function(){
+  
+  area_control(0);
+  
+  
+  
+  $('.select').on('change', function(){
+  
+  let op_index = $(this).prop('selectedIndex') - 1;
+  
+  area_control(op_index);
+  
+  });
+  
+  });
+  
+  
+  
+  function area_control(n){
+  
+  $('.area.show').removeClass('show');
+  
+  $('.area').eq(n).addClass('show');
+  
+  }
+  
+  
+  </script>
+
+
+
+
+<div class="parent">
+  <div class="div2">
+    <ul>
+      <li class="area">1</li>
+      <li class="area">2</li>
+      <li class="area">3</li>
+      <li class="area">4</li>
+      <li class="area">5</li>
+      <li class="area">6</li>
+      <li class="area">7</li>
+    </ul>
+  </div>
+  <div class="div1">
+    <div class="select1">
+      <div class="glass-container" id="glass"><h2><font color="#000000">調べたいイベントを<br> 選択してください</font></h2></div>
+      <br>
+      <label> 
+      <select class="select" size=15>
+
+      <option disabled selected value>↓項目を選択してください↓</option>
+      <optgroup label="イベント参加方法"></optgroup>
+      <option value="eventjoinevent">イベント鯖に参加する方法</option>
+      <option value="eventjoinROYPK">ROYPKでのイベントに参加する方法</option>
+      <optgroup label="ROYParkourサーバーのイベント"></optgroup>
+      <option value="athleticmarathon">アスレチックマラソン</option>
+      <option value="athleticrace">アスレレース</option>
+      <optgroup label="イベントサーバーのイベント"></optgroup>
+      <option value="jinrouRPG">人狼RPG</option>
+      <option value="mikkokuchuu">密航中</option>
+      <option value="OJchallenge">One Jump Challenge</option>
+      </select>
+      </label>
+    </div>
+  </div>
 </div>
-<style>
-.needjoin {
-  background: #c2edff;/*背景色*/
-  padding: 0.5em;/*文字まわり（上下左右）の余白*/
-}
-</style>
 
-<div class="hidden_box">
-  <input type="checkbox" id="label1" />
-  <label for="label1">イベント一覧</label>
-  <div class="hidden_show">
-    <!--非表示内容--><br><br>
-    <input type="checkbox" id="label2" />
-    　 <label for="label2">ROY Parkour内でのイベント</label>
-    <div class="hidden_show">
-      <div style="padding: 10px; margin-bottom: 10px; border: 5px solid #efefef; border-radius: 10px;">
-        <b><font color="#ff6600"><div class="needjoin">この枠(ROY Parkour内でのイベント)に載っているイベントに参加するには、ROY Parkourに参加できる状態である必要があります。<a href="../join/index.html" target="_blank" rel="noopener noreferrer">ROY Parkour 参加方法</a></b></font></div>
-        <div class="wrap">
-          <label for="minibox1">アスレチックマラソン</label>
-          <input type="checkbox" id="minibox1" class="switch" />
-          <div class="content">
-            <p>ROY Parkourのアスレチックから厳選されたいくつかの低難易度アスレをクリアしていきます。（選ばれるアスレについてはイベント企画予告時に連絡します。）
-<br>
-そしていち早くゴールした人が勝ちです。
-<br>上位者にはプレゼントがあります。<br>
-１位には10000 yen(○○yenは鯖の通貨) + アスレチックマラソン1位限定TAGをプレゼントします！<br>
-２位には 8000 yen 3位 7000yen 4位 6000yen 5位 5000 yen 6位 3000 yen 7位 2000 yen 8位 1500 yen 9位からは1000 yen が与えられます。
 
-</p>
-          </div>
-      </div>
-      <div class="wrap">
-          <label for="minibox2">アスレレース</label>
-          <input type="checkbox" id="minibox2" class="switch" />
-          <div class="content">
-            <p>低難易度アスレチック公開時や不定期でレースを行います。
-            ほぼ説明不要。
-            上位者には鯖通貨のプレゼントがございます。</p>
-          </div>
-      </div>
-      </div></div><br><br>
-      <input type="checkbox" id="label3" />
-      　 <label for="label3">イベント鯖で行われるイベント</label>
-      <div class="hidden_show">
-        <div style="padding: 10px; margin-bottom: 10px; border: 5px solid #efefef; border-radius: 10px;">
-          <div class="wrap">
-          <label for="minibox3">人狼RPG</label>
-          <input type="checkbox" id="minibox3" class="switch" />
-          <div class="content">
-            <p>文章が長くなってしまったので、こちらのサイトでご確認ください。</p>
-            <a href="https://wiki3.jp/ROYPKJinrouRPG/page/1" target="_blank" rel="noopener noreferrer">人狼RPG説明サイト</a>
-          </div>
-          <div class="wrap">
-          <label for="minibox4">密告中</label>
-          <input type="checkbox" id="minibox4" class="switch" />
-          <div class="content">
-            <p>文章が長くなってしまったので、こちらのサイトでご確認ください。</p>
-            <a href="https://docs.google.com/document/d/1zT5bvT3MieR3EUXSQLl3Xmm5efsfqlplTniJpj4-4n8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">密告中説明サイト</a>
-          </div>
-          <div class="wrap">
-          <label for="minibox5">One Jump Challenge</label>
-          <input type="checkbox" id="minibox5" class="switch" />
-          <div class="content">
-            <p>文章が長くなってしまったので、こちらのサイトでご確認ください。</p>
-            <a href="https://docs.google.com/document/d/1bXLWFaISUuu8m0OmzyjixDnffYeehnN4Mg2qWFptU7U/edit?usp=sharing" target="_blank" rel="noopener noreferrer">One Jump Challenge説明サイト</a>
-          </div>
-      </div>
-      </div></div>
-        <p></p></div>
-        </div>
-      </div>
+    
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<style>
-  /*全体*/
-.hidden_box {
-  margin: 2em 0;
-  padding: 0;
-}
 
-        /*ボタン装飾*/
-.hidden_box label {
-  padding: 15px;
-  font-weight: bold;
-  background: #efefef;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: .5s;
-}
 
-        /*アイコンを表示*/
-.hidden_box label:before {
-  display: inline-block;
-  content: '\f078';
-  font-family: 'FontAwesome';
-  padding-right: 5px;
-  transition: 0.2s;
-}
-
-        /*ボタンホバー時*/
-.hidden_box label:hover {
-  background: silver;
-}
-
-        /*アイコンを切り替え*/
-.hidden_box input:checked+label:before {
-  content: '\f00d';
-  -ms-transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
-  color: #668ad8;
-}
-
-        /*チェックは見えなくする*/
-.hidden_box input {
-  display: none;
-}
-
-        /*中身を非表示*/
-.hidden_box .hidden_show {
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: 0.8s;
-}
-
-        /*中身表示*/
-.hidden_box input:checked+label+.hidden_show {
-  padding: 10px 0;
-  height: auto;
-  opacity: 1;
-}
-</style>
-</style>
