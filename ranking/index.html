@@ -111,6 +111,41 @@ window.addEventListener('DOMContentLoaded', function(e){
 });
 
 </script>
+
+<style>
+
+option:hover {
+  background-color: aqua;
+  transform: scale(1.15);
+  text-align: left;
+  animation-name: hover1 ;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+option:checked{
+  font-weight: bold;
+  transform: scale(1.15);
+  text-align: left;
+  padding-left:10%;
+}
+
+option:checked:after{
+  content:"◁◁◁";
+}
+
+@keyframes hover1 {
+  0%{
+    padding-left: 0px;
+  }
+  100%{
+    padding-left: 10%;
+  }
+}
+</style>
+
+
 <style>
 input.widebox1{
 width:222px;
