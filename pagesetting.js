@@ -1,12 +1,11 @@
-if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
 
-    location.href = '/sp/index.html';
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
     
-    }
-
-    if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-
-          location.href = '/sp/index.html';
-
-    }
-
+        location.href = '/sp/index.html';
+        
+        }
+    
+        if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+            location.href = '/sp/index.html';
+    
+        
