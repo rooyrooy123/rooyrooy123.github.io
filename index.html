@@ -10,7 +10,7 @@ function OnButtonClick() {
 }
 </Script>
 
-<script>
+
     if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
         var result = window.confirm('スマホ機器を検知しました。正しければ「OK」を押してROYParkourスマートフォン専用Webページに移動することを勧めます。');
     if( result ) {
@@ -20,4 +20,5 @@ function OnButtonClick() {
         location.href = $url + '/sp' + $pathNameremove; /*スマホ専用ROYPKサイトに振り分け*/
     }
     }
-</script>
+
+    <script type="text/javascript" src="pagesetting.js"></script>
