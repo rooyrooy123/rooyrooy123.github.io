@@ -1,21 +1,25 @@
 test
-<head>
-<script type="text/javascript" src="pagesetting.js"></script>
-</head>
 
 
+<script>
 
 
 
     if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+    var result = window.confirm('ボタンをクリック！');
     
-    location.href = '/sp/index.html';
-    
+    if( result ) {
+      location.href = '/sp/index.html';
     }
+    }
+    
 
     if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-        location.href = '/sp/index.html';
-
+        var result = window.confirm('ボタンをクリック！');
     
-
-<a href="pagesetting.js">a</a>422
+    if( result ) {
+        location.href = '/sp/index.html';
+    }
+    }
+    
+    </script>
