@@ -1,13 +1,17 @@
 test
 
-
+<input type="button" value="Exec" onclick="OnButtonClick();"/><br />
 <script>
-
-
+function OnButtonClick() {
+    var $root = 'https://rooyrooy123.github.io';
+    var $pathName = location.pathname;
+    var $pathNameDelete = $pathName.replace($root,'')
+    location.href = $root + '/sp' + $pathNameDelete;
+}
 
 
     if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-        var result = window.confirm('スマホ機器を検知しました。正しければスマホ専用ページに移動することを勧めます。');
+        var result = window.confirm('スマホ機器を検知しました。正しければ「OK」を押してROYParkourスマートフォン専用Webページに移動することを勧めます。');
     
     if( result ) {
         location.href = '/sp/index.html';
