@@ -82,8 +82,8 @@ grid-column-gap: 30px;
 grid-row-gap: 20px;
 }
 
-.div1 { grid-area: 1 / 1 / 7 / 6; }
-.div2 { grid-area: 2 / 6 / 7 / 21; }
+.div1 { grid-area: 1 / 1 / 7 / 6;}
+.div2 { grid-area: 2 / 6 / 7 / 21;}
 .div3 { grid-area: 1 / 6 / 2 / 21; }
 
 
@@ -122,6 +122,7 @@ grid-row-gap: 20px;
     100%{background-position:0% 50%}
 }
 
+
 .select1 select{
   position: fixed;
   top: 190px;
@@ -133,7 +134,8 @@ grid-row-gap: 20px;
 }
 
 
-/* This was made with GlassGenerator.netlify.app */ 
+
+/* This was made with GlassGenerator.netlify.app */
 
 .glass-container{
     position: fixed;
@@ -162,17 +164,16 @@ grid-row-gap: 20px;
 
 
 
-
 .area {
+  display: none;
+  list-style: none;
 
-display: none;
 
 }
 
 .area.show {
-
-display: block;	/* またはblockなど */
-
+  display: block;
+  list-style: none;
 }
 
 
@@ -240,31 +241,67 @@ option:checked{
   });
   
   
-  
+  /*
   function area_control(n){
   
   $('.area.show').removeClass('show');
-  
   $('.area').eq(n).addClass('show');
   
+
   }
-  
-  
+  */
+  function area_control(n){
+  $('.area.show').hide().removeClass('show');
+  $('.area').eq(n).fadeIn(1000).addClass('show');
+  }
   </script>
 
+<style>
+/*表示内容のスタイル*/
 
+.box2{
+
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 3px #4ec4d2;/*左線*/
+    border-right: double 3px #4ec4d2;/*右線*/
+}
+
+
+
+.box1 {
+    position: relative;
+    right: 20px;
+    color: #232323;
+    background: #fff8e8;
+    border-left: solid 10px #ffc06e;
+}
+
+
+
+</style>
 
 <div class="loadedpage">
 <div class="parent">
   <div class="div2">
     <ul>
-      <li class="area">1</li>
-      <li class="area">2</li>
-      <li class="area">3</li>
-      <li class="area">4</li>
-      <li class="area">5</li>
-      <li class="area">6</li>
-      <li class="area">7</li>
+      <li class="area"><div class="box2">
+        <b><font color="green">イベントDiscord鯖に参加する方法↓↓↓</font></b><br>
+        <a href="https://twitter.com/ROOYROOY10">@ROOYROOY10</a>のDM(あるいはDiscordのDM[るーい#5435])にてイベント鯖に参加したい意思を伝えます。<br>
+        審査を通過できた場合、イベント鯖(通称:るーいの遊び場)のdiscordURLを送ります。そのURLからイベントDiscord鯖に参加してください。<br>
+        イベントの告知やルール、イベントサーバーのIPアドレスなどはこのるーいの遊び場Discordサーバーにて送信します。<br>
+        <font color="red"><b>(※イベントによってIPアドレスが違う場合が多いので告知で送信されるIPアドレスを毎回確認するようお願い申し上げます。)</b></font><br>
+        また、当ページに記載されていない企画(例:配布ワールドを遊ぶイベント)を行う場合がございますが、その際、ルールを告知と同時に送信します。<br>
+        <font color="green"><b>【ROY Parkourの参加者専用Discordに参加している場合】</b></font><br>
+        ROY Parkour参加者専用Discord鯖内の「roy-parkour」というチャンネルに移動すると、るーいの遊び場への招待URLを確認できます。<br>
+        <font color="red" ><b>※るーいの遊び場Discordサーバーへの招待URLや、イベントサーバーIPアドレスを第三者に知らせる行為は処罰対象です。絶対に守ってください。</b></font></div></li> <!--イベント参加方法-->
+      <li class="area"><div class="box1">ROYParkourの参加資格を得ている必要があります。<br>
+        ROYParkourの参加方法は<a href="../join/index.html">ここをくりっく^w^</a></li> <!--ROYPKのイベント参加方法-->
+      <li class="area">3</li> <!--アスレチックマラソン-->
+      <li class="area">4</li> <!--アスレレース-->
+      <li class="area">5</li> <!--人狼RPG-->
+      <li class="area"><iframe src="mikkoku/Mikkoku.html" height="450px" width="1000px"></iframe>></li> <!--密告中-->
+      <li class="area"><iframe src="OJC/OJC.html" height="450px" width="1000px"></iframe></li> <!--One Jump Challenge-->
     </ul>
   </div>
   <div class="div1">
@@ -283,7 +320,7 @@ option:checked{
       <option value="athleticrace">アスレレース</option>
       <optgroup label="イベントサーバーのイベント"></optgroup>
       <option value="jinrouRPG">人狼RPG</option>
-      <option value="mikkokuchuu">密航中</option>
+      <option value="mikkokuchuu">密告中</option>
       <option value="OJchallenge">One Jump Challenge</option>
       </select>
       </label>

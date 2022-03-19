@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', function(e){
 
 <style>
 
-option:hover {
+option:not(:checked):hover{
   background-color: aqua;
   transform: scale(1.15);
   text-align: left;
@@ -139,6 +139,29 @@ option:hover {
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
+
+
+option:not(:checked):hover::before{
+  content:"⇒⇒";
+}
+
+option:not(:checked):hover::after{
+  content: url(../ROOYface\ .png);
+  display: inline-block ;
+  vertical-align: middle;
+  transform: scale(0.25);
+  position: relative;
+  bottom: 1px;
+  right: 20px;
+  margin-top: -100px;
+  margin-bottom: -100px;
+  animation-name: hover1 ;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+}
+
 
 option:checked{
   font-weight: bold;
