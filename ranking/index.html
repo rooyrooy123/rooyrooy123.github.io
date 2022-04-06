@@ -1,4 +1,33 @@
 
+<html>
+  <head>
+  <script type="text/javascript">
+  
+  var qsParm = new Array();
+  var query = window.location.search.substring(1);
+  var parms = query.split('&');
+  for (var i=0; i<parms.length; i++) {
+  var pos = parms[i].indexOf('=');
+  if (pos > 0) {
+  var key = parms[i].substring(0,pos);
+  var val = parms[i].substring(pos+1);
+
+  qsParm[key] = val;
+  }
+  }
+  
+  function into(){
+  if (qsParm["asure"] !== undefined){
+      document.getElementById("url").value = qsParm["asure"];
+      rankingload( "new" );
+  }
+  }
+  
+  </script>
+  </head>
+  <body onload="into()">
+  </body>
+  </html>
 <script>
   if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
       var result = window.confirm('スマホ機器を検知しました。正しければ「OK」を押してROYParkourスマートフォン専用Webページに移動することを勧めます。');
@@ -246,6 +275,7 @@ border: 1.5px solid black;
 <option value="Excelsia">Excelsia</option>
 <option value="FamilSection">FamilSection</option>
 <option value="Force">Force</option>
+<option value="Hell">Hell</option>
 <option value="Inthetree">Inthetree</option>
 <option value="Irontrap">Irontrap</option>
 <option value="Irontrap2">Irontrap2</option>
@@ -345,6 +375,7 @@ border: 1.5px solid black;
 <option value="NeiroSection">NeiroSection</option>
 <option value="OnceLv.10">OnceLv.10</option>
 <option value="Planetarycivilization">Planetarycivilization</option>
+<option value="Runinnature=Danger=">Runinnature=Danger=</option>
 <option value="TechnicalJumps">TechnicalJumps</option>
 <option value="gomisection">gomisection</option>
 <option value="kehactionD">kehactionD</option>
