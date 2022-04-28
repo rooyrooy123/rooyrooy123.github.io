@@ -18,8 +18,11 @@
   
   function into(){
   if (qsParm["asure"] !== undefined){
+    
       document.getElementById("url").value = qsParm["asure"];
+      
       rankingload( "new" );
+      
   }
   }
   
@@ -97,7 +100,22 @@
 
 
  <script type="text/javascript" language="javascript">
+function copyUrl() {
+    const element = document.createElement('input');
+    element.value = location.href;
+    document.body.appendChild(element);
+    element.select();
+    document.execCommand('copy');
+    document.body.removeChild(element);
+}
 
+function rankingloadurlparam( strValue ) {
+  var parkourname = document.getElementById("url").value;
+  rankingload("new");
+let params = new URLSearchParams(location.search.slice(1));
+params.set('asure', parkourname);
+window.history.replaceState({}, '', `${location.pathname}?${params}`);
+}
 
 // ranking読み込み iframeでparkournameこの場合の$(url).htmlを表示する
 function rankingload( strValue ) {
@@ -136,7 +154,8 @@ function rankingload( strValue ) {
 	
 	// IFRAME を実装
 	base.appendChild(obj);
-	
+  
+
 
 }
 
@@ -147,9 +166,10 @@ window.addEventListener('DOMContentLoaded', function(e){
   document.querySelector('#parkourlist').addEventListener('change',function(e){
 
     var t=e.target;
+    var decode=decodeURI(t.options[t.selectedIndex].textContent);
+    document.querySelector('#url').value=decode
+	rankingloadurlparam( "new" );
 
-    document.querySelector('#url').value=t.options[t.selectedIndex].textContent;
-	rankingload( "new" );
    
   });
 
@@ -392,7 +412,8 @@ border: 1.5px solid black;
 <form name="form1" action="">
 <input name="asure" type="text" class="widebox1" id="url"  placeholder="アスレチック名入力欄" /><br>※入力する場合は空白を消してください<br>
 </form>
-<input type="button" value="読み込み" width="400px" onclick='rankingload( "new" );'>
+<input type="button" value="読み込み" width="400px" onclick='rankingloadurlparam( "new" );'>
+<button onclick="copyUrl()">Copy URL</button>
 </div>  
 <div id ="iframediv">
 <div id="new"></div>
