@@ -1,0 +1,297 @@
+
+<html>
+  <head>
+  <script type="text/javascript">
+  
+  var qsParm = new Array();
+  var query = window.location.search.substring(1);
+  var parms = query.split('&');
+  for (var i=0; i<parms.length; i++) {
+  var pos = parms[i].indexOf('=');
+  if (pos > 0) {
+  var key = parms[i].substring(0,pos);
+  var val = parms[i].substring(pos+1);
+
+  qsParm[key] = val;
+  }
+  }
+  
+  function into(){
+  if (qsParm["asure"] !== undefined){
+    
+      document.getElementById("url").value = qsParm["asure"];
+      
+      rankingload( "new" );
+      
+  }
+  }
+  
+  </script>
+  </head>
+  <body onload="into()">
+  </body>
+  </html>
+<script>
+  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+      var result = window.confirm('スマホ機器を検知しました。正しければ「OK」を押してROYParkourスマートフォン専用Webページに移動することを勧めます。');
+  if( result ) {
+      var $url = 'https://rooyrooy123.github.io';    /*GithubのURL */
+      var $pathName = location.pathname; /*path取得して変数ぶっこむ*/
+      var $pathNameremove = $pathName.replace($url,'') /*取得したpathからurl変数を消す*/
+      location.href = $url + '/sp' + $pathNameremove; /*スマホ専用ROYPKサイトに振り分け*/
+  }
+  }
+</script>
+
+<head>
+<script type="text/javascript" src="../pagesetting.js"></script>
+</head>
+<meta charset="UTF-8">
+<title>ROY Parkour | Ranking</title>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png">
+<header>
+<div style="position:absolute; top:2px; left:1px">
+<a href="https://twitter.com/ROOYROOY10"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png" width="55.3" height="56" onmouseover="this.src='https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROYParkour/20210711/20210711131924.png'" onmouseout="this.src='https://cdn-ak.f.st-hatena.com/images/fotolife/R/ROOYROOY/20210616/20210616073447.png'"></a></div>
+<div class="cp_navi">
+<ul>
+  &emsp;&emsp;&ensp;&ensp;&ensp;<li><b>ROY Parkour</b></li>
+  <li><a class="active" href="../">Home</a></li>
+  <li><a href="../about/index.html">About</a></li>
+  <li><a href="../news/index.html">News</a></li>
+  <li><a href="../ranking/index.html">Ranking</a></li>
+  <li><a href="../event/index.html">Event</a></li>
+  <li><a href="../rule/index.html">Rule</a></li>
+  <li><a href="../join/index.html">Join</a></li>
+  <li><a href="../Admin/index.html">Admin</a></li>
+  <li>
+    <a>Other<span class="caret"></span></a>
+    <div>
+      <ul>
+        <li><a href="https://roypk-adminblog.theblog.me/"><font color="#000000">運営のゆったりブログ</font></a></li>
+        <li><a href="https://photos.app.goo.gl/8okUsfmRQNPRiWev9"><font color="#000000">ROY Parkourアルバム</font></a></li>
+        <li><a href="../Admin/rule/index.html"><font color="#000000">運営規約</font></a></li>
+	<li><a href="../report/index.html"><font color="#000000">Report</font></a></li>
+        <li><a href="../download/index.html"><font color="#000000">Download</font></a></li>
+      </ul>
+    </div>
+  <li>
+</ul>
+</div>
+<div style="position:absolute; top:60px; right:10px">
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../menu.css">
+<script type="text/javascript" src="../pagetop.js"></script>
+<a href="#" class="pagetop"></a>
+</header>
+<style>
+
+
+  body {
+    background-image: url("");
+    background-size: cover;
+    padding-top: 80px;
+  }
+</style>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+ <script type="text/javascript" language="javascript">
+function copyUrl() {
+    const element = document.createElement('input');
+    element.value = location.href;
+    document.body.appendChild(element);
+    element.select();
+    document.execCommand('copy');
+    document.body.removeChild(element);
+}
+
+function rankingloadurlparam( strValue ) {
+  var parkourname = document.getElementById("url").value;
+  rankingload("new");
+let params = new URLSearchParams(location.search.slice(1));
+params.set('asure', parkourname);
+window.history.replaceState({}, '', `${location.pathname}?${params}`);
+}
+
+// ranking読み込み iframeでparkournameこの場合の$(url).htmlを表示する
+function rankingload( strValue ) {
+
+	var base;
+	var obj;
+
+	base = document.getElementById(strValue);
+	base.innerHTML = "";
+		
+	// IFRAME 作成
+	obj = document.createElement("iframe");
+	// IFRAME の見栄え属性をセット
+	obj.setAttribute("frameBorder", "1");
+	obj.setAttribute("scrolling", "auto");
+
+	// IFRAME の配置属性をセット
+	obj.style.position = "relative";
+	if(navigator.userAgent.match(/(iPhone|iPod|Android.*Mobile)/i)){
+	// スマホの場合の高さ
+	  obj.style.width = "400px";
+	  obj.style.height = "820px";
+	  iframediv.style.zoom = '1.5';
+    }else{
+	// PC・タブレットの場合の高さ
+	  obj.style.width = "1000px";
+	  obj.style.height = "580px";
+	  select.style.zoom = '1.5';
+	  select.style.animation = 'anim 1s forwards';
+    }
+
+
+	// IFRAME の内容をセット
+	obj.src = document.getElementById("url").value;
+    obj.src += ".html";
+	
+	// IFRAME を実装
+	base.appendChild(obj);
+  
+
+
+}
+
+
+// select要素が変更されたときにurlidのformにParkour名ぶち込む
+window.addEventListener('DOMContentLoaded', function(e){
+
+  document.querySelector('#parkourlist').addEventListener('change',function(e){
+
+    var t=e.target;
+    var decode=decodeURI(t.options[t.selectedIndex].textContent);
+    document.querySelector('#url').value=decode
+	rankingloadurlparam( "new" );
+
+   
+  });
+
+});
+
+</script>
+
+<style>
+
+option:not(:checked):hover{
+  background-color: aqua;
+  transform: scale(1.15);
+  text-align: left;
+  animation-name: hover1 ;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+option:not(:checked):hover::before{
+  content:"⇒⇒";
+}
+
+option:not(:checked):hover::after{
+  content: url(../ROOYface\ .png);
+  display: inline-block ;
+  vertical-align: middle;
+  transform: scale(0.25);
+  position: relative;
+  bottom: 1px;
+  right: 20px;
+  margin-top: -100px;
+  margin-bottom: -100px;
+  animation-name: hover1 ;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+}
+
+
+option:checked{
+  font-weight: bold;
+  transform: scale(1.15);
+  text-align: left;
+  padding-left:10%;
+}
+
+option:checked:after{
+  content:"◁◁◁";
+}
+
+@keyframes hover1 {
+  0%{
+    padding-left: 0px;
+  }
+  100%{
+    padding-left: 10%;
+  }
+}
+</style>
+
+
+<style>
+input.widebox1{
+width:222px;
+}
+#select{
+zoom:1.55;
+position: absolute;
+left:400px;
+top:60px;
+}
+
+
+#iframe{
+zoom:2.3;
+position: absolute;
+left: 30px;
+top:35px;
+}
+
+@keyframes anim {
+  0% {
+  transform: translateX(0px);
+  }
+
+  100% {
+  transform: translateX(300px);
+  }
+}
+
+input {
+border: 1.5px solid black;
+}
+
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</script>
+
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
+</head>
+<div class="loadedpage">
+<div id="select">
+<select name="parkourlist" id="parkourlist" size=15>
+<optgroup label="アスレチックを選択してください"></optgroup><optgroup label="最終更新日:2023/10/01 8:07"></optgroup>
+<optgroup label="↓↓高難易度アスレチック↓↓"></optgroup>
+<option value="test">test</option>
+
+</select>
+<form name="form1" action="">
+<input name="asure" type="text" class="widebox1" id="url"  placeholder="アスレチック名入力欄" /><br>※入力する場合は空白を消してください<br>
+</form>
+<input type="button" value="読み込み" width="400px" onclick='rankingloadurlparam( "new" );'>
+<button onclick="copyUrl()">Copy URL</button>
+</div>  
+<div id ="iframediv">
+<div id="new"></div>
+</div>
+</div>
